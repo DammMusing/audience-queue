@@ -2,13 +2,13 @@
 
 from flask import Blueprint, g, render_template
 
-api = Blueprint("api", __name__, url_prefix="/<queue_id>")
+api = Blueprint("api", __name__, url_prefix="/<channel_id>")
 
 @api.url_value_preprocessor
 def extract_queue_id(unused_endpoint, values):
-  g.queue_id = values.pop("queue_id", None)
+  g.queue_id = values.pop("channel_id", None)
   # TODO validate existence of queue_id
-  # g.queue = queues.ChannelQueue(g.queue_id)
+  # g.queue = db.get_channel_queue(g.queue_id)
 
 
 @api.route("/")
