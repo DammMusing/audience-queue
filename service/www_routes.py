@@ -1,9 +1,10 @@
 """Defines routes for the API calls to chat-queue"""
 
-from flask import Blueprint, g, render_template
+from flask import Blueprint, render_template
 
 www = Blueprint("www", __name__)
 
 @www.route("/")
-def queue_listing():
+def homepage():
+  """Renders the HTML for the landing page."""
   return render_template("homepage.html")
